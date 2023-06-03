@@ -13,9 +13,7 @@ install: ## Install package with dependencies
 
 .PHONY: lint
 lint: ## Lint code with flake8, pylint, mypy
-	$(py) flake8 $(code_dir) --exit-zero
-	$(py) pylint $(code_dir) --exit-zero
-	$(py) mypy $(package_dir) || true
+	$(py) pre-commit flake8 pylint mypy
 
 .PHONY: test
 test: ## Run tests
