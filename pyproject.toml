@@ -58,7 +58,7 @@ include_trailing_comma = true
 combine_as_imports = true
 remove_redundant_aliases = true
 
-[tool.pytest]
+[tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [build-system]
