@@ -5,11 +5,9 @@ show-source=False
 
 max-line-length=120
 
-application-import-names=dataclass_factory
 exclude=
     .venv,
-    docs,
-    benchmarks
+    docs
 docstring-convention=pep257
 ignore=
     # A003 class attribute "..." is shadowing a python builtin
