@@ -4,7 +4,7 @@ help:
 
 # Install package with dependencies
 install:
-	poetry install --with dev,test,lint
+	uv sync --all-extras
 
 # Run pre-commit
 lint:
