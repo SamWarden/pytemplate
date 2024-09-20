@@ -35,7 +35,7 @@ jobs:
       - name: Set up Python 3.12
         run: uv python install 3.12
       - name: Install dependencies
-        run: uv sync --extra lint,dev
+        run: uv sync --extra lint --extra dev
       - name: Lint with pre-commit
         run: uv run pre-commit run --all-files
   test:
