@@ -11,45 +11,51 @@ on:
   pull_request:
     branches: [ master, dev ]
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.4.13"
-      - name: Set up Python 3.13
-        run: uv python install 3.13
+          version: "0.5.29"
+      - name: Set up Python 3.13 venv
+        run: uv venv -p 3.13 .venv
+      - name: Activate venv
+        run: source .venv/bin/activate
       - name: Install dependencies
-        run: uv sync --all-extras
+        run: uv sync --all-groups --all-extras
   lint:
-    needs: build
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.4.13"
-      - name: Set up Python 3.13
-        run: uv python install 3.13
+          version: "0.5.29"
+      - name: Set up Python 3.13 venv
+        run: uv venv -p 3.13 .venv
+      - name: Activate venv
+        run: source .venv/bin/activate
       - name: Install dependencies
-        run: uv sync --extra lint --extra dev
+        run: uv sync --group dev
       - name: Lint with pre-commit
         run: uv run pre-commit run --all-files
   test:
-    needs: build
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.4.13"
-      - name: Set up Python 3.13
-        run: uv python install 3.13
+          version: "0.5.29"
+      - name: Set up Python 3.13 venv
+        run: uv venv -p 3.13 .venv
+      - name: Activate venv
+        run: source .venv/bin/activate
       - name: Install dependencies
-        run: uv sync --extra test
+        run: uv sync --group test
       - name: Test with pytest
         run: uv run pytest

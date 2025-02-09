@@ -16,7 +16,7 @@ maintainers = [
 dependencies = [
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = ["pre-commit==4.1.*"]
 test = ["pytest==8.3.*"]
 lint = [
