@@ -19,6 +19,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           version: "0.5.29"
+          enable-cache: true
       - name: Set up Python 3.13 venv
         run: uv venv -p 3.13 .venv
       - name: Activate venv
@@ -34,6 +35,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           version: "0.5.29"
+          enable-cache: true
       - name: Set up Python 3.13 venv
         run: uv venv -p 3.13 .venv
       - name: Activate venv
@@ -51,6 +53,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           version: "0.5.29"
+          enable-cache: true
       - name: Set up Python 3.13 venv
         run: uv venv -p 3.13 .venv
       - name: Activate venv
