@@ -34,5 +34,5 @@ Issues = "https://github.com/SamWarden/pytemplate/issues"
 testpaths = ["tests"]
 
 [build-system]
-requires = ['setuptools==75.8.0']
-build-backend = 'setuptools.build_meta'
+requires = ["setuptools==75.8.0"]
+build-backend = "setuptools.build_meta"
