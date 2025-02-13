@@ -4,7 +4,7 @@ help:
 
 # Install package with dependencies
 install:
-	uv sync --all-extras
+	uv sync --all-groups --all-extras
 
 # Run pre-commit
 lint:
@@ -15,4 +15,4 @@ test *args:
     just _py pytest {{args}}
 
 _py *args:
-    poetry run {{args}}
+    uv run {{args}}
