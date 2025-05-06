@@ -6,9 +6,9 @@ name: CI
 on:
   workflow_call:
   push:
-    branches: [ master, dev ]
+    branches: [ master ]
   pull_request:
-    branches: [ master, dev ]
+    branches: [ master ]
 
 jobs:
   setup:
@@ -18,7 +18,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.5.29"
+          version: "0.7.2"
           enable-cache: true
       - name: Install project dependencies
         run: uv sync --all-groups --all-extras
